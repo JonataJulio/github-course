@@ -49,44 +49,58 @@ endif;
 
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="style/mystyle.css">
         <title>Login</title>
-        <meta charset="utf-8">
-
-        <style>
-            div{
-                text-align: center;
-                align-items: center;
-                width: 500px;
-                border: 5px solid gray;
-                padding: 25px;
-                margin: 0 auto;
-                margin-top: 10em;
-            }
-        </style>
-
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=devide-width, initial-scale=1.0">
+        <meta name = "description" content = "Login - Cadastro de Profissionais">
     </head>
 
-        <body>
-        <div>
-            <h1>Login Página inicial</h1>
-            <?php
-                if(!empty($erros)):
-                    foreach($erros as $erro):
-                        echo $erro;
-                    endforeach;
-                endif;
-            ?>
+    <body>
+    <main>
+            <div class = "container">
 
-            <hr>
+                <div class="leftContent">
+                    <h2 class="leftTitle">Seja bem-vindo</h2>
+                    <p class="leftText">Para acessar o sistema de cadastro de<br> profissionais, por favor, faça o login.</p>
+                    <figure class="leftLogo">
+                        <img id="logo" src = "images/arcondicionado.png" alt="logo">
+                    </figure>
+                </div>
 
-            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-                Login: <input type="text" name="login">
-                <br>
-                Senha: <input type="password" name="senha">
-                <br>
-                <button type="submit" name="btn-entrar">Entrar</button>
-            </form>
-        </div>
+                
+
+                <div class = "rightContent">
+                    
+
+                    <h1>Faça o seu login</h1>
+                    
+                    <?php
+                        if(!empty($erros)):
+                            foreach($erros as $erro):
+                                echo $erro;
+                            endforeach;
+                        endif;
+                    ?>
+
+                    <form class="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+                        
+                        <div class="formGroup">
+                            <label for="login">Login:</label>
+                            <input type="text" name="login" placeholder="Nome do usuário">
+                        </div>
+
+                        <div class="formGroup">
+                            <label for="password">Senha:</label>
+                            <input type="password" name="senha" placeholder="Digite a sua senha">
+                        </div>
+
+                        <button type="submit" name="btn-entrar" id="btn-entrar">Login</button>
+                    </form>
+
+                </div>
+
+            </div>
         </body>
+    </main>
 </html>
-
